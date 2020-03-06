@@ -41,35 +41,22 @@
 
         <div>
             <article>
-
-
-                <form method="POST" id="myform">
-
-                    :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" id="principle"><br><br><br>
-
-                    Time in years:&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" id="time"><br><br><br>
-
-                    Rate of interest:&nbsp;&nbsp;
-                    <input type="text" id="rate"><br><br><br>
-
-
-
-                    <input type="button" value="Get Simple Interest" id="area"
-                        onclick="calculateInterest();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <br><br>
-                    Result
-                    :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" id="AreaValue"><br><br>
-
-                    <hr>
-
-                    <input type="button" class="btn btn-primary" value="getDogImage" id="getscore"><br><br>
-                    <img type="text" id="dogarea">
-
-                </form>
+                <main class="container">
+                    <article id="art">
+                        <h1>Area of a Circle Calculation</h1>
+                        <form method="POST">
+                            <label for="radius">Radius:</label>
+                            <input type="number" step=1 name="radius" id="radius" placeholder="Enter Radius"><br><br>
+        
+                            <button type="button" id="calc">Calculate</button> <br><br>
+                            <div id="result">Result: 0</div>
+                        </form>
+                    </article>
+                </main>
+                <footer class="foot">
+                    <p>&copy; Vikas</p>
+                </footer>
+              <script src="interaction.js"> </script>
                 <br><br>
 
 
@@ -96,11 +83,11 @@
 
 <footer>
     <div>
-        &copy; 2020 Ravi Teja Pagidoju
+        &copy; 2020 Vikas
     </div>
 
 </footer>
-<script src="src/application.js"></script>
+<script src="src/interaction.js"></script>
 </body>
 
 </html>
