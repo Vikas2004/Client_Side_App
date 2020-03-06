@@ -8,6 +8,6 @@ btnElement.onclick = async function ()
   const textResult = inputElementResult.value;
   const Radius = parseFloat(textRad);
 
-  const Result =  Math.PI * (Radius * Radius );
+  const Result =  (22 * (Radius * Radius ))/7;
   inputElementResult.innerHTML = "Result: " + Result;
 }
