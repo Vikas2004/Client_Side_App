@@ -1,9 +1,43 @@
 QUnit.module('MAIN MODULE', {})
 
 QUnit.test('TEST calcArea', assert => {
-  assert.equal(calcAreaTest(1), 154, 'Test radius = 7')
-  assert.equal(calcAreaTest(3), 616, 'Test radius = 14')
-  assert.equal(calcAreaTest(5), 1386, 'Test radius = 21')
-  assert.equal(calcAreaTest(7), 2464, 'Test radius = 28')
-  assert.equal(calcAreaTest(10), 0, 'Test radius = 0')
+  assert.equal(calcAreaTest(7), 154, 'Test radius = 7')
+  assert.equal(calcAreaTest(14), 616, 'Test radius = 14')
+  assert.equal(calcAreaTest(21), 1386, 'Test radius = 21')
+  assert.equal(calcAreaTest(28), 2464, 'Test radius = 28')
+  assert.equal(calcAreaTest(0), 0, 'Test radius = 0')
+})
+
+
+
+QUnit.config.autostart = false  // sync = false; start after loading html
+
+// This script, called when the page loads, reaches out to the app that we wish to test
+// It basically pastes the contents of that page into *this* web page, whew! This shows
+// how we manipulate the DOM.
+
+// The openingTag and closingTag specify which part of the original app's web page that we grab here
+// Pretty slick eh?
+
+window.addEventListener('load', () => {
+  const appURL = '../index.html' // reach out to the html for the app (js-gui)
+  const openingTag = '<main class="container mt-5 flex-fill">'
+  const closingTag = '</main>' // go grab it!
+  fetch(appURL, { method: 'GET' })
+    .then(response => {
+      return response.text() // returns promise
+    })
+    .then(txt => {                
+      const start = txt.indexOf(openingTag)
+      const end = txt.indexOf(closingTag) + closingTag.length
+      const html = txt.substring(start, end) // we only want part of the page
+      const qunitFixtureBody = document.querySelector('#qunit-fixture')
+      qunitFixtureBody.innerHTML = html // put the page into the DOM - the second div associated with this page
+      console.info(qunitFixtureBody) // print it out so we can see it (it doesn't get inserted into the page)
+      QUnit.start() // start the actual testing - it finds and runs both the tests, defined in QUnit.test()
+    })
+    .catch(error => {
+      console.error('error:', error);
+      QUnit.start()
+    })
 })
