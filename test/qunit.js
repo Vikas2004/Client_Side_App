@@ -1,11 +1,11 @@
 QUnit.module('MAIN MODULE', {})
 
 QUnit.test('TEST calcArea', assert => {
-  assert.equal(calcAreaTest(7), 154, 'Test radius = 7')
-  assert.equal(calcAreaTest(14), 616, 'Test radius = 14')
-  assert.equal(calcAreaTest(21), 1386, 'Test radius = 21')
-  assert.equal(calcAreaTest(28), 2464, 'Test radius = 28')
-  assert.equal(calcAreaTest(0), 0, 'Test radius = 0')
+  assert.equal(mul(7), 154, 'Test radius = 7')
+  assert.equal(mul(14), 616, 'Test radius = 14')
+  assert.equal(mul(21), 1386, 'Test radius = 21')
+  assert.equal(mul(28), 2464, 'Test radius = 28')
+  assert.equal(mul(0), 0, 'Test radius = 0')
 })
 
 
