@@ -17,7 +17,7 @@ btnElement.onclick = async function ()
 
 const getImage = async () => {
   try {
-      const response = await fetch('https://ironman.fandom.com/wiki/Mark_L?file=Iron_man_avengers_infinity_war_png_by_gasa979-dc5nh19.png');
+      const response = await fetch('https://dog.ceo/api/breeds/image/random');
       const obj = await response.json();
       console.log(`FETCHED. Response JSON ${obj}`);
       const imag = obj.message || 'No Image for you.';
@@ -37,7 +37,7 @@ const updateWithImage = async (event) => {
    }
 }
 document.addEventListener('click', event => {
-  if (event.target && event.target.id === 'Fetch image') { 
+  if (event.target && event.target.id === 'Fetch') { 
     updateWithImage(event);
    }
 })
